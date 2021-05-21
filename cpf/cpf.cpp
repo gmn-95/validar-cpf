@@ -1,16 +1,17 @@
-#include <iostream>
-#include <iomanip> // maninpulação de saída de dados
+#include "iostream"
+#include "locale"
+#include <iomanip> // maninpula��o de sa�da de dados
 #include <string> //biblioteca de strings
 #include <cstdlib>
 #include <stdfix.h>
 #include <locale>
-// 45867793060 -> cpf aleatorio usado para teste, gerado por um site
-using namespace std;
 
-void digitarCpf(); //usuário vai digitar um cpf
-char primeiroDigito(); //vai checar o primeiro digito validador de um cpf
-char segundoDigito(); //vai checar o segundo digito validador de um cpf
-char validacao(char di9, char gi10); // vai verificar se os digitos validaores batem com o cpf e trazer uma mensagem se é válido ou nn
+using namespace std;
+// 45867793060
+void digitarCpf();
+char primeiroDigito();
+char segundoDigito();
+char validacao(char di9, char gi10);
 
 char cpf[12];
 int res, soma, cont, num, r = 0;
@@ -33,6 +34,7 @@ int main()
     }
     return 0;
 }
+
 
 void digitarCpf(){
 
@@ -66,8 +68,6 @@ void digitarCpf(){
             cout << "\n\nOPÇÃO INVÁLIDA!\n";
             goto INICIO;
         }
-
-
 }
 
 char primeiroDigito(){
@@ -77,7 +77,7 @@ char primeiroDigito(){
 
         for (cont = 0; cont < 9; cont++) {
             num = cpf[cont] - 48;//transformar os 11 digitos do cpf que est�o em caracteres
-                                 //de acordo com a tela ascii em inteiros
+                                 //de acordo com a tabelaa ascii em inteiros
             soma += (num * (10 - cont));//realizar o calculo de multiplicar os primeiros 9 digitos
                                     //multiplicando de 10 até 2 e somando-os
                                     //ex: 5*10 + 8*9 + 2*8...até...1*2
